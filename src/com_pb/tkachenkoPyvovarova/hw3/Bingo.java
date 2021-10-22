@@ -1,4 +1,4 @@
-package com_pb.tkachenkoPyvovarova;
+package com_pb.tkachenkoPyvovarova.hw3;
 
 import java.util.Random;
 import java.util.Scanner;
