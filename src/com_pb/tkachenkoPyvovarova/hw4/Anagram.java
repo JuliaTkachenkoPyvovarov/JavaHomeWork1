@@ -2,18 +2,37 @@ package com_pb.tkachenkoPyvovarova.hw4;
 
 import java.util.Scanner;
 import java.util.Arrays;
+// не разобралась c регулярками  :(
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
+
 
 public class Anagram {
 
     static String format(String a) {
-        char[] c = a.toCharArray();        // преобразовіваю в массив символов char[] result = str.toCharArray();
+        char[] c = a.toCharArray();   // преобразовіваю в массив символов char[] result = str.toCharArray();
         //System.out.println(c);
         Arrays.sort(c);          // сортирую по возрастанию Arrays.sort(array)
         //System.out.println(c);
         String b = new String(c);  // меняю снова на строку
         b = b.trim(); // удаляю пробелі
-        System.out.println(b);
+        System.out.println("format " + b);
         return b;
+    }
+
+    static String del (String a) {
+        //String pattern = "[^A-Za-zА-Яа-я]";
+        //Pattern p = Pattern.compile(pattern);
+        //Matcher m = p.matcher(a);
+        //while(m.find()) {
+            String f = a.toLowerCase().replace(".", " "); // нахожу знак, заменяю на пробел
+            String f1 = f.toLowerCase().replace(",", " ");
+            String f2 = f1.toLowerCase().replace("?", " ");
+            String f3 = f2.toLowerCase().replace("!", " ");
+            String f4 = f3.toLowerCase().replace("-", " ");
+            String f5 = f4.toLowerCase().replace("—", " ");
+            System.out.println("del = " + f5);
+        return f5;
     }
 
     public static void main(String[] args) {
@@ -21,39 +40,20 @@ public class Anagram {
         String x; //вводимые пользователем переменные
         String y; //вводимые пользователем переменные
 
-
         System.out.println("Введите первую фразу: ");
         x = scan.nextLine();
 
         System.out.println("Введите вторую фразу: ");
         y = scan.nextLine();
 
-        String x1 = format(x);
-        //String x2 = del(x1, '.');
+        String x1 = del(x);
+        String x2 = format(x1);
 
-        String y1 = format(y);
-        //String y2 = del(y1, '.');
+        String y1 = del(y);
+        String y2 = format(y1);
 
-        //if(x1.contains ("+") {
-         //   int xx = x1.indexOf();
-           // StringBuffer a2 = new StringBuffer(x1);
-         //   a2.delete(x1, 1);
-         //     System.out.println("a2 = " + a2);
-
-
-        //    int d = x1.length() - 1;
-     //   char[] a1 = {'.', ',', '!', '?', '-'};
-     //   for (int i = 0; i < d; i++) {
-     //       int c = x1.indexOf(a1[0]);
-     //       if (c > 0) {
-     //           StringBuffer a2 = new StringBuffer(x1);
-      //          a2.delete(c, 1);
-      //          System.out.println("a2 = " + a2);
-      //  }
-//
-            //          System.out.println("c = " + c);
-
-            if (x1.toLowerCase().equals(y1)) { //перевожу в нижний регистр и сравниваю строки
+            if (x2.equals(y2)) { //перевожу в нижний регистр и сравниваю строки
+                System.out.println(x2.equals(y2));
                 System.out.println("Введенные фразы - анаграммы друг друга!");
             } else {
                 System.out.println("Введенные фразы анаграммами друг друга не являются.");
@@ -61,9 +61,6 @@ public class Anagram {
         }
     }
 
-
-
-//   Программа должна игнорировать пробелы и знаки препинания.
 
 //  Пример анаграмм:
 //  Аз есмь строка, живу я, мерой остр. -> За семь морей ростка я вижу рост.
