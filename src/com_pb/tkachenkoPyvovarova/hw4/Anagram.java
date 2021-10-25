@@ -16,7 +16,7 @@ public class Anagram {
         //System.out.println(c);
         String b = new String(c);  // меняю снова на строку
         b = b.trim(); // удаляю пробелі
-        System.out.println("format " + b);
+        //System.out.println("format " + b);
         return b;
     }
 
@@ -31,7 +31,7 @@ public class Anagram {
             String f3 = f2.toLowerCase().replace("!", " ");
             String f4 = f3.toLowerCase().replace("-", " ");
             String f5 = f4.toLowerCase().replace("—", " ");
-            System.out.println("del = " + f5);
+        //System.out.println("del = " + f5);
         return f5;
     }
 
@@ -53,7 +53,7 @@ public class Anagram {
         String y2 = format(y1);
 
             if (x2.equals(y2)) { //перевожу в нижний регистр и сравниваю строки
-                System.out.println(x2.equals(y2));
+                //System.out.println(x2.equals(y2));
                 System.out.println("Введенные фразы - анаграммы друг друга!");
             } else {
                 System.out.println("Введенные фразы анаграммами друг друга не являются.");
